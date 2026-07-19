@@ -32,11 +32,23 @@ python3 -m http.server 8080
 
 ## Como publicar (para usar no celular)
 
-Como são arquivos estáticos, dá para hospedar de graça. O caminho mais simples é o
-**GitHub Pages**: nas configurações do repositório → *Pages* → publique a partir da branch.
-Você recebe uma URL `https://...` que pode abrir no celular e **instalar como app**
-(menu do navegador → "Adicionar à tela inicial"). Qualquer host estático (Netlify, Vercel,
-Cloudflare Pages) também funciona.
+Como são arquivos estáticos, dá para hospedar de graça no **GitHub Pages**. Passo a passo
+para este repositório:
+
+1. No GitHub, abra **Settings → Pages**.
+2. Em **Source**, escolha **"Deploy from a branch"**.
+3. Em **Branch**, selecione `claude/habit-tracking-app-e40hcw` e a pasta **`/ (root)`**.
+4. Clique em **Save**.
+
+Em cerca de 1 minuto a URL pública aparece na própria tela de *Pages* — algo como
+`https://karinbraun.github.io/App-Claude/`. Abra essa URL no celular e use o menu do
+navegador → **"Adicionar à tela inicial"** para instalar como app. Cada novo envio (push)
+para essa branch re-publica o site sozinho.
+
+> O arquivo `.nojekyll` na raiz faz o GitHub servir os arquivos exatamente como estão
+> (sem o processamento Jekyll), o que é o recomendado para um PWA.
+
+Qualquer outro host estático (Netlify, Vercel, Cloudflare Pages) também funciona.
 
 ## Sobre os lembretes
 
