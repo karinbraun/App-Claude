@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Constância — Hábitos</title>
+  <meta name="description" content="Acompanhe o check-in de vários hábitos ao mesmo tempo. Funciona offline, dados no seu dispositivo.">
+  <meta name="theme-color" content="#6d5efc">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Constância">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <h1>Constância</h1>
+      </div>
+      <button id="theme-toggle" class="icon-btn" title="Alternar tema" aria-label="Alternar tema claro/escuro">🌙</button>
+    </header>
+
+    <main id="view" class="view" tabindex="-1"><!-- as telas são renderizadas aqui --></main>
+
+    <nav class="tabbar" aria-label="Navegação principal">
+      <button class="tab" data-route="hoje" type="button"><span class="tab-ico" aria-hidden="true">☀️</span><span class="tab-label">Hoje</span></button>
+      <button class="tab" data-route="semana" type="button"><span class="tab-ico" aria-hidden="true">🗓️</span><span class="tab-label">Semana</span></button>
+      <button class="tab" data-route="stats" type="button"><span class="tab-ico" aria-hidden="true">📊</span><span class="tab-label">Estatísticas</span></button>
+      <button class="tab" data-route="habitos" type="button"><span class="tab-ico" aria-hidden="true">🎯</span><span class="tab-label">Hábitos</span></button>
+    </nav>
+  </div>
+
+  <!-- Modal de criar/editar hábito (fica fora das telas para não perder o foco ao re-renderizar) -->
+  <dialog id="habit-dialog" class="dialog">
+    <form id="habit-form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="dialog-title">Novo hábito</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Fechar">✕</button>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Nome</span>
+        <input id="f-name" type="text" maxlength="40" placeholder="Ex: Beber água" required autocomplete="off">
+      </label>
+
+      <div class="field">
+        <span class="field-label">Emoji</span>
+        <div id="f-emoji" class="emoji-grid" role="radiogroup" aria-label="Emoji do hábito"></div>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Cor</span>
+        <div id="f-color" class="color-grid" role="radiogroup" aria-label="Cor do hábito"></div>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Meta</span>
+        <div class="goal-row">
+          <label class="chip-radio"><input type="radio" name="goalType" value="daily" checked> Todo dia</label>
+          <label class="chip-radio"><input type="radio" name="goalType" value="weekly"> Vezes por semana</label>
+        </div>
+        <div id="weekly-target" class="target-row" hidden>
+          <label for="f-target">Meta:</label>
+          <select id="f-target">
+            <option value="1">1x</option>
+            <option value="2">2x</option>
+            <option value="3" selected>3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+          </select>
+          <span>por semana</span>
+        </div>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Lembrete <span class="muted">(opcional)</span></span>
+        <input id="f-reminder" type="time">
+      </label>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn-danger" id="f-delete" hidden>Excluir</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn-ghost" data-close>Cancelar</button>
+        <button type="submit" class="btn-primary">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Aviso rápido (toast) -->
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

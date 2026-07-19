@@ -1,0 +1,12 @@
+# Dependências de desenvolvimento (o app em si não usa nenhuma)
+node_modules/
+package-lock.json
+
+# Scripts temporários de verificação
+*.tmp.mjs
+
+# Sistema / editores
+.DS_Store
+*.log
+.vscode/
+.idea/

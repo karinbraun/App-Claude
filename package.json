@@ -1,0 +1,11 @@
+{
+  "name": "constancia",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Constância — app web de gestão de hábitos (PWA, offline, sem dependências).",
+  "scripts": {
+    "test": "node --test",
+    "start": "python3 -m http.server 8080"
+  }
+}
