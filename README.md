@@ -32,23 +32,25 @@ python3 -m http.server 8080
 
 ## Como publicar (para usar no celular)
 
-Como são arquivos estáticos, dá para hospedar de graça no **GitHub Pages**. Passo a passo
-para este repositório:
+> **Atenção:** este repositório é privado. No plano gratuito do GitHub, o **GitHub Pages
+> não serve repositório privado**, então as instruções antigas de publicar por
+> *Settings → Pages* deixaram de valer e a URL `karinbraun.github.io/App-Claude/` saiu
+> do ar.
 
-1. No GitHub, abra **Settings → Pages**.
-2. Em **Source**, escolha **"Deploy from a branch"**.
-3. Em **Branch**, selecione `claude/habit-tracking-app-e40hcw` e a pasta **`/ (root)`**.
-4. Clique em **Save**.
+No computador, o app continua rodando pelo servidor local da seção anterior.
 
-Em cerca de 1 minuto a URL pública aparece na própria tela de *Pages* — algo como
-`https://karinbraun.github.io/App-Claude/`. Abra essa URL no celular e use o menu do
-navegador → **"Adicionar à tela inicial"** para instalar como app. Cada novo envio (push)
-para essa branch re-publica o site sozinho.
+Para voltar a usar no celular, três caminhos, nenhum escolhido até agora:
+
+- **Cloudflare Pages** ou **Netlify**: os dois fazem deploy de repositório privado no
+  plano gratuito. É a saída mais rápida, e a URL muda.
+- **GitHub Pro** (em torno de US$ 4 por mês): reativa o Pages em repositório privado,
+  sem mudar estrutura nem URL.
+- **Repositório separado**: manter só o app num repositório público, com o material
+  privado em outro.
 
 > O arquivo `.nojekyll` na raiz faz o GitHub servir os arquivos exatamente como estão
-> (sem o processamento Jekyll), o que é o recomendado para um PWA.
-
-Qualquer outro host estático (Netlify, Vercel, Cloudflare Pages) também funciona.
+> (sem o processamento Jekyll), o que é o recomendado para um PWA. Ele fica onde está,
+> caso o Pages volte a ser usado.
 
 ## Sobre os lembretes
 
