@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Presença — Faltas e viagens</title>
+  <meta name="description" content="Controle de faltas por disciplina (mínimo de 75% de presença) e simulação do impacto de viagens. Funciona offline, dados no seu aparelho.">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Presença">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <h1>Presença</h1>
+      </div>
+      <button id="theme-toggle" class="icon-btn" type="button" title="Alternar tema" aria-label="Alternar tema claro/escuro">🌙</button>
+    </header>
+
+    <main id="view" class="view" tabindex="-1"><!-- as telas são renderizadas aqui --></main>
+
+    <nav class="tabbar" aria-label="Navegação principal">
+      <button class="tab" data-route="painel" type="button"><span class="tab-ico" aria-hidden="true">📊</span><span class="tab-label">Painel</span></button>
+      <button class="tab" data-route="viagens" type="button"><span class="tab-ico" aria-hidden="true">✈️</span><span class="tab-label">Viagens</span></button>
+      <button class="tab" data-route="aulas" type="button"><span class="tab-ico" aria-hidden="true">🗓️</span><span class="tab-label">Aulas</span></button>
+      <button class="tab" data-route="ajustes" type="button"><span class="tab-ico" aria-hidden="true">⚙️</span><span class="tab-label">Ajustes</span></button>
+    </nav>
+  </div>
+
+  <!-- Modal de disciplina (conteúdo gerado por discipline-dialog.js) -->
+  <dialog id="disc-dialog" class="dialog">
+    <form id="disc-form" class="dialog-form" novalidate></form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

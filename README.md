@@ -1,3 +1,35 @@
+# App-Claude
+
+Este repositório contém dois apps web independentes (PWA, offline, dados só no aparelho):
+
+| App | Pasta | Endereço publicado |
+|---|---|---|
+| **Constância** — hábitos | raiz (`/`) | `https://karinbraun.github.io/App-Claude/` |
+| **Presença** — faltas e viagens | `presenca/` | `https://karinbraun.github.io/App-Claude/presenca/` |
+
+## Presença — faltas na faculdade × viagens a trabalho
+
+Controla a presença mínima de **75% por disciplina, em horas-aula**, e simula o impacto de
+viagens antes de aceitá-las. Limite de faltas = 25% da carga horária nominal
+(40h → 10h; 80h → 20h).
+
+- **Painel** — saldo de faltas por disciplina: registradas, previstas em viagens, saldo em
+  horas e em encontros, presença projetada e status (dentro do limite / no limite / reprovaria).
+- **Viagens** — informe saída e volta; antes de salvar, o app mostra as aulas do período,
+  as horas perdidas e o saldo antes → depois em cada disciplina. Desmarque as aulas que você
+  conseguirá assistir.
+- **Aulas** — calendário mês a mês gerado da grade; registre falta total ou parcial.
+- **Ajustes** — datas do semestre, disciplinas (carga, dias e horas-aula, cancelamentos,
+  reposições), feriados/recessos, tema e backup.
+
+Regras de cálculo: uma aula com falta registrada nunca conta de novo pela viagem; viagens
+sobrepostas contam a aula uma vez; aulas de viagens já passadas continuam contando até você
+registrá-las. Se as horas geradas pelo calendário diferirem da carga nominal, o app avisa.
+
+Lógica em `presenca/js/model.js`, testada em `tests/presenca.test.mjs`.
+
+---
+
 # Constância — app de gestão de hábitos
 
 Um app web para **acompanhar o check-in de vários hábitos ao mesmo tempo**. Bonito,
@@ -37,11 +69,12 @@ para este repositório:
 
 1. No GitHub, abra **Settings → Pages**.
 2. Em **Source**, escolha **"Deploy from a branch"**.
-3. Em **Branch**, selecione `claude/habit-tracking-app-e40hcw` e a pasta **`/ (root)`**.
+3. Em **Branch**, selecione `claude/academic-attendance-manager-lnrk86` (que contém os dois apps)
+   e a pasta **`/ (root)`**.
 4. Clique em **Save**.
 
 Em cerca de 1 minuto a URL pública aparece na própria tela de *Pages* — algo como
-`https://karinbraun.github.io/App-Claude/`. Abra essa URL no celular e use o menu do
+`https://karinbraun.github.io/App-Claude/` (Constância) e `.../App-Claude/presenca/` (Presença). Abra a URL no celular e use o menu do
 navegador → **"Adicionar à tela inicial"** para instalar como app. Cada novo envio (push)
 para essa branch re-publica o site sozinho.
 

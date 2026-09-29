@@ -18,6 +18,10 @@ const jobs = [
   { svg: 'icons/icon.svg', out: 'icons/icon-192.png', size: 192 },
   { svg: 'icons/icon.svg', out: 'icons/icon-512.png', size: 512 },
   { svg: 'icons/icon-maskable.svg', out: 'icons/icon-maskable.png', size: 512 },
+  // App Presença (/presenca)
+  { svg: 'presenca/icons/icon.svg', out: 'presenca/icons/icon-192.png', size: 192 },
+  { svg: 'presenca/icons/icon.svg', out: 'presenca/icons/icon-512.png', size: 512 },
+  { svg: 'presenca/icons/icon-maskable.svg', out: 'presenca/icons/icon-maskable.png', size: 512 },
 ];
 
 const browser = await chromium.launch({ executablePath: exe });

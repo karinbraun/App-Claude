@@ -1,11 +1,11 @@
 /**
- * sw.js — Service worker: deixa o app funcionar offline (cache do "app shell").
+ * sw.js — Service worker do Presença: deixa o app funcionar offline (cache do "app shell").
  *
  * Estratégia: cache-first para os arquivos do app; para navegação, cai de volta
  * para o index.html quando estiver offline. Ao mudar o app, suba o CACHE_VERSION
  * para invalidar o cache antigo.
  */
-const CACHE_VERSION = 'constancia-v1';
+const CACHE_VERSION = 'presenca-v1';
 const ASSETS = [
   './',
   'index.html',
@@ -14,15 +14,12 @@ const ASSETS = [
   'js/app.js',
   'js/store.js',
   'js/model.js',
-  'js/constants.js',
-  'js/charts.js',
-  'js/notifications.js',
   'js/dom.js',
-  'js/habit-dialog.js',
-  'js/views/today.js',
-  'js/views/week.js',
-  'js/views/stats.js',
-  'js/views/habits.js',
+  'js/discipline-dialog.js',
+  'js/views/painel.js',
+  'js/views/viagens.js',
+  'js/views/aulas.js',
+  'js/views/ajustes.js',
   'icons/icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
@@ -39,8 +36,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      // Só apaga caches do próprio app: o Presença (/presenca/) divide a mesma origem.
-      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('constancia-') && k !== CACHE_VERSION).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('presenca-') && k !== CACHE_VERSION).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   );
 });
